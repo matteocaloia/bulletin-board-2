@@ -15,6 +15,10 @@
         <a href="/delete_post/<%= @the_post.id %>">
           Delete post
         </a>
+        <% if current_user && post.user_id == current_user.id %>
+  <%= link_to 'Delete post', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
       </div>
     </div>
 
